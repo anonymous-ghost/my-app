@@ -30,3 +30,42 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
       });
     }
   }
+   double _evaluate(String input) {
+    // Проста реалізація для обчислень. Можна додати більше функцій.
+    return double.parse(input); // Заміни це на свою логіку обчислень
+  }
+
+  void _clear() {
+    setState(() {
+      _input = '';
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Calculator'),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.history),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => HistoryScreen()),
+              );
+            },
+          ),
+        ],
+      ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: <Widget>[
+          Container(
+            padding: EdgeInsets.all(20),
+            alignment: Alignment.centerRight,
+            child: Text(
+              _input,
+              style: TextStyle(fontSize: 48),
+            ),
+          ),
