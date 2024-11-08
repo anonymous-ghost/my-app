@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'database_helper.dart';
+import 'history_screen.dart';
 
 class CalculatorScreen extends StatefulWidget {
   @override
@@ -32,7 +33,6 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
   }
 
   double _evaluate(String input) {
-    // Проста реалізація для обчислень. Можна додати більше функцій.
     return double.parse(input); // Заміни це на свою логіку обчислень
   }
 
