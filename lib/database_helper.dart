@@ -16,6 +16,7 @@ class Calculation {
     };
   }
 }
+
 class DatabaseHelper {
   static final DatabaseHelper _instance = DatabaseHelper._internal();
   factory DatabaseHelper() => _instance;
@@ -40,3 +41,26 @@ class DatabaseHelper {
       version: 1,
     );
   }
+
+  Future<void> insertCalculation(String expression, String result) async {
+    final db = await database;
+    await db.insert(
+      'calculations',
+      Calculation(expression: expression, result: result).toMap(),
+      conflictAlgorithm: ConflictAlgorithm.replace,
+    );
+  }
+
+  Future<List<Calculation>> getCalculations() async {
+    final db = await database;
+    final List<Map<String, dynamic>> maps = await db.query('calculations');
+
+    return List.generate(maps.length, (i) {
+      return Calculation(
+        id: maps[i]['id'],
+        expression: maps[i]['expression'],
+        result: maps[i]['result'],
+      );
+    });
+  }
+}
