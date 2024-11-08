@@ -22,3 +22,21 @@ class DatabaseHelper {
   DatabaseHelper._internal();
 
   Database? _database;
+
+  Future<Database> get database async {
+    if (_database != null) return _database!;
+    _database = await _initDatabase();
+    return _database!;
+  }
+
+  Future<Database> _initDatabase() async {
+    return await openDatabase(
+      join(await getDatabasesPath(), 'calculations.db'),
+      onCreate: (db, version) {
+        return db.execute(
+          'CREATE TABLE calculations(id INTEGER PRIMARY KEY AUTOINCREMENT, expression TEXT, result TEXT)',
+        );
+      },
+      version: 1,
+    );
+  }
