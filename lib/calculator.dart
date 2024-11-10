@@ -86,37 +86,51 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
-              ElevatedButton(child: Text('1'), onPressed: () => _appendInput('1')),
-              ElevatedButton(child: Text('2'), onPressed: () => _appendInput('2')),
-              ElevatedButton(child: Text('3'), onPressed: () => _appendInput('3')),
-              ElevatedButton(child: Text('+'), onPressed: () => _appendInput('+')),
+              ElevatedButton(
+                  child: Text('1'), onPressed: () => _appendInput('1')),
+              ElevatedButton(
+                  child: Text('2'), onPressed: () => _appendInput('2')),
+              ElevatedButton(
+                  child: Text('3'), onPressed: () => _appendInput('3')),
+              ElevatedButton(
+                  child: Text('+'), onPressed: () => _appendInput('+')),
             ],
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
-              ElevatedButton(child: Text('4'), onPressed: () => _appendInput('4')),
-              ElevatedButton(child: Text('5'), onPressed: () => _appendInput('5')),
-              ElevatedButton(child: Text('6'), onPressed: () => _appendInput('6')),
-              ElevatedButton(child: Text('-'), onPressed: () => _appendInput('-')),
+              ElevatedButton(
+                  child: Text('4'), onPressed: () => _appendInput('4')),
+              ElevatedButton(
+                  child: Text('5'), onPressed: () => _appendInput('5')),
+              ElevatedButton(
+                  child: Text('6'), onPressed: () => _appendInput('6')),
+              ElevatedButton(
+                  child: Text('-'), onPressed: () => _appendInput('-')),
             ],
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
-              ElevatedButton(child: Text('7'), onPressed: () => _appendInput('7')),
-              ElevatedButton(child: Text('8'), onPressed: () => _appendInput('8')),
-              ElevatedButton(child: Text('9'), onPressed: () => _appendInput('9')),
-              ElevatedButton(child: Text('*'), onPressed: () => _appendInput('*')),
+              ElevatedButton(
+                  child: Text('7'), onPressed: () => _appendInput('7')),
+              ElevatedButton(
+                  child: Text('8'), onPressed: () => _appendInput('8')),
+              ElevatedButton(
+                  child: Text('9'), onPressed: () => _appendInput('9')),
+              ElevatedButton(
+                  child: Text('*'), onPressed: () => _appendInput('*')),
             ],
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               ElevatedButton(child: Text('C'), onPressed: _clear),
-              ElevatedButton(child: Text('0'), onPressed: () => _appendInput('0')),
+              ElevatedButton(
+                  child: Text('0'), onPressed: () => _appendInput('0')),
               ElevatedButton(child: Text('='), onPressed: _calculate),
-              ElevatedButton(child: Text('/'), onPressed: () => _appendInput('/')),
+              ElevatedButton(
+                  child: Text('/'), onPressed: () => _appendInput('/')),
             ],
           ),
         ],

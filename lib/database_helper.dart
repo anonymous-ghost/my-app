@@ -5,9 +5,7 @@ class Calculation {
   final int? id;
   final String expression;
   final String result;
-
   Calculation({this.id, required this.expression, required this.result});
-
   // Перетворення об'єкта у Map для зберігання в базі даних
   Map<String, dynamic> toMap() {
     return {
@@ -31,9 +29,7 @@ class DatabaseHelper {
   static final DatabaseHelper _instance = DatabaseHelper._internal();
   factory DatabaseHelper() => _instance;
   DatabaseHelper._internal();
-
   Database? _database;
-
   // Отримання бази даних з ініціалізацією, якщо вона ще не створена
   Future<Database> get database async {
     if (_database != null) return _database!;
@@ -45,7 +41,6 @@ class DatabaseHelper {
   Future<Database> _initDatabase() async {
     final dbPath = await getDatabasesPath();
     final path = join(dbPath, 'calculations.db');
-
     return await openDatabase(
       path,
       version: 1,
@@ -71,7 +66,6 @@ class DatabaseHelper {
   Future<List<Calculation>> getCalculations() async {
     final db = await database;
     final List<Map<String, dynamic>> maps = await db.query('calculations');
-
     // Перетворення списку Map у список об'єктів Calculation
     return List.generate(maps.length, (i) {
       return Calculation.fromMap(maps[i]);
